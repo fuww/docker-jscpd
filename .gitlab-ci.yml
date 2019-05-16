@@ -20,9 +20,9 @@ build:
     IMAGE: fuww/jscpd:latest
     IMAGE_IN_REGISTRY: $CI_REGISTRY/fuww/jscpd:latest
   script:
-    - docker pull "$IMAGE_IN_REGISTRY" || true
     - docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD"
     - docker login -u _json_key -p "$GOOGLE_CLOUD_SERVICE_KEY" "$CI_REGISTRY"
+    - docker pull "$IMAGE_IN_REGISTRY" || true
     - docker build --pull -t "$IMAGE_IN_REGISTRY" -t "$IMAGE" --cache-from "$IMAGE_IN_REGISTRY" .
     - docker push "$IMAGE_IN_REGISTRY"
     - docker push "$IMAGE"
