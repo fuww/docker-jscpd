@@ -1,4 +1,4 @@
-FROM mirror.gcr.io/library/node:10-alpine
+FROM mirror.gcr.io/library/node:12-alpine
 
 RUN apk add --no-cache python make g++
 
