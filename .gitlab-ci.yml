@@ -9,9 +9,9 @@
       - runner_unsupported
 
 build:
-  image: mirror.gcr.io/library/docker:latest
+  image: docker:latest
   services:
-   - mirror.gcr.io/library/docker:dind
+   - docker:dind
   tags:
     - docker
   stage: build
